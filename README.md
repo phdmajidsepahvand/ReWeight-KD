@@ -15,22 +15,22 @@ The result is a stable, uncertainty-aware, and generalizable student model suita
 
 ## Features
 
-### ✔ Multi-Teacher Supervision  
+###  Multi-Teacher Supervision  
 Combines multiple teacher networks, allowing the student to learn complementary and diverse decision boundaries.
 
-### ✔ Dirichlet-Based Sample Reweighting  
+###  Dirichlet-Based Sample Reweighting  
 Interprets ensemble predictions as Dirichlet parameters to compute confidence-adaptive weights for each training example.
 
-### ✔ Uncertainty-Aware Distillation  
+###  Uncertainty-Aware Distillation  
 Samples with higher ensemble agreement contribute more strongly to the optimization process.
 
-### ✔ Hybrid Distillation Objective  
+###  Hybrid Distillation Objective  
 Trains the student using a weighted KL divergence loss combined with standard cross-entropy for ground-truth supervision.
 
-### ✔ Robust to Domain Shift  
+###  Robust to Domain Shift  
 Designed for medical datasets where variability across devices, patients, and acquisition protocols frequently leads to distribution shifts.
 
-### ✔ Lightweight Deployment  
+###  Lightweight Deployment  
 Produces compact diagnostic models suitable for edge devices, mobile health systems, and real-time clinical inference.
 
 ---
