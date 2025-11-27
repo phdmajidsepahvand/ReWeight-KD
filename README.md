@@ -1,13 +1,13 @@
-# REWED
+# ReWeight-KD
 ### Reweighted Ensemble Distillation for Domain-Generalized Medical Diagnosis
 
 ---
 
 ## Overview
 
-**REWED** introduces a lightweight and effective framework for **reweighted ensemble knowledge distillation**, designed to enhance diagnostic robustness and domain generalization in medical AI systems.
+**ReWeight-KD** introduces a lightweight and effective framework for **reweighted ensemble knowledge distillation**, designed to enhance diagnostic robustness and domain generalization in medical AI systems.
 
-Unlike conventional single-teacher distillation, REWED leverages a **multi-teacher ensemble**, aggregates their predictive distributions, and models them using a **Dirichlet-guided reweighting mechanism**. This allows the student model to focus more on reliable, high-confidence samples while down-weighting uncertain or ambiguous ones.
+Unlike conventional single-teacher distillation, ReWeight-KD leverages a **multi-teacher ensemble**, aggregates their predictive distributions, and models them using a **Dirichlet-guided reweighting mechanism**. This allows the student model to focus more on reliable, high-confidence samples while down-weighting uncertain or ambiguous ones.
 
 The result is a stable, uncertainty-aware, and generalizable student model suitable for deployment in real-world medical environments.
 
@@ -38,7 +38,7 @@ Produces compact diagnostic models suitable for edge devices, mobile health syst
 ## Project Structure
 
 ```
-REWED/
+ReWeight-KD/
 ├── distill/
 │   ├── data.py
 │   ├── models.py
