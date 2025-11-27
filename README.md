@@ -2,11 +2,6 @@
 
 # 
 
-# This repository contains a simple PyTorch implementation of
-
-# \*\*reweighted ensemble distillation\*\* on the \*\*ECG5000\*\* dataset
-
-# (UCR Time Series).
 
 # 
 
@@ -16,7 +11,7 @@
 
 # 
 
-# \- Multiple teacher networks are trained on ECG5000.
+# \- Multiple teacher networks are trained.
 
 # \- Their softmax outputs are averaged to form an ensemble distribution.
 
@@ -32,7 +27,7 @@
 
 # 
 
-# \- `ecg\_distill/data.py`: ECG5000 dataset loader
+# \- `ecg\_distill/data.py`: dataset loader
 
 # \- `ecg\_distill/models.py`: ECGNet model and TeacherEnsemble
 
