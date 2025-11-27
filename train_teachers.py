@@ -3,9 +3,9 @@ import argparse
 import os
 import torch
 import torch.nn as nn
-from ecg_distill.data import create_dataloaders
-from ecg_distill.models import ECGNet
-from ecg_distill.utils import eval_accuracy, set_seed
+from distill.data import create_dataloaders
+from distill.models import MNet
+from distill.utils import eval_accuracy, set_seed
 
 def train_teacher(model, train_loader, test_loader, device, epochs=5, lr=1e-3):
     model.to(device)
@@ -51,7 +51,7 @@ def main():
 
     for i in range(args.num_teachers):
         print(f"=== Training Teacher {i+1} ===")
-        teacher = ECGNet(meta["input_dim"], meta["num_classes"])
+        teacher = MNet(meta["input_dim"], meta["num_classes"])
         teacher = train_teacher(teacher, train_loader, test_loader, device, epochs=args.epochs)
         torch.save(teacher.state_dict(), f"{args.out_dir}/teacher_{i+1}.pth")
 

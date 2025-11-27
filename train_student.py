@@ -4,10 +4,10 @@ import os
 import torch
 import torch.nn.functional as F
 
-from ecg_distill.data import create_dataloaders
-from ecg_distill.models import ECGNet, TeacherEnsemble
-from ecg_distill.distillation import compute_sample_weights_from_distribution, distillation_loss_weighted
-from ecg_distill.utils import eval_accuracy, set_seed
+from distill.data import create_dataloaders
+from distill.models import MNet, TeacherEnsemble
+from distill.distillation import compute_sample_weights_from_distribution, distillation_loss_weighted
+from distill.utils import eval_accuracy, set_seed
 
 def main():
     parser = argparse.ArgumentParser()
@@ -33,7 +33,7 @@ def main():
     )
     teachers = []
     for f in teacher_files:
-        model = ECGNet(meta["input_dim"], meta["num_classes"]).to(device)
+        model = MNet(meta["input_dim"], meta["num_classes"]).to(device)
         model.load_state_dict(torch.load(os.path.join(args.teachers_dir, f), map_location=device))
         model.eval()
         teachers.append(model)
@@ -41,7 +41,7 @@ def main():
     ensemble = TeacherEnsemble(teachers).to(device)
 
     # Student model
-    student = ECGNet(meta["input_dim"], meta["num_classes"]).to(device)
+    student = MNet(meta["input_dim"], meta["num_classes"]).to(device)
     opt = torch.optim.Adam(student.parameters(), lr=args.lr)
 
     for epoch in range(args.epochs):
